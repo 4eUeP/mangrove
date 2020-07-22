@@ -167,8 +167,10 @@ showSpeed label numBytes action = go 0 0.0
       let time' = time + deltaT
       if time' > 1
          then do let speed = (fromIntegral flow') / time' / 1024 / 1024
-                 hPutStr SIO.stdout $ "\r=> " <> label <> " speed: "
-                                   <> showFFloat (Just 2) speed " MiB/s"
+                 --hPutStr SIO.stdout $ "\r=> " <> label <> " speed: "
+                 --                  <> showFFloat (Just 2) speed " MiB/s"
+                 hPutStr SIO.stdout $ "=> " <> label <> " speed: "
+                                   <> showFFloat (Just 2) speed " MiB/s\n"
                  go 0 0.0
          else go flow' time'
 
